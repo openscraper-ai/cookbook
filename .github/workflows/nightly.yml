@@ -1,0 +1,29 @@
+name: pass criteria
+
+on:
+  schedule:
+    - cron: "0 5 * * *"      # 05:00 UTC daily
+  workflow_dispatch:
+
+# Secrets are unavailable to workflows triggered from forks, by design — so this
+# never runs on pull_request. Scheduled and manual runs execute on the base repo,
+# where the credentials live.
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Run the pass criteria
+        env:
+          UNLOCKER_URL: ${{ vars.UNLOCKER_URL || 'https://solver.openscraper.ai' }}
+          UNLOCKER_API_KEY: ${{ secrets.UNLOCKER_API_KEY }}
+          SOLVER_TESTS_PROXY_FR: ${{ secrets.SOLVER_TESTS_PROXY_FR }}
+        run: python3 run.py
+      - name: Publish the report
+        if: always()
+        run: cat report.md >> "$GITHUB_STEP_SUMMARY"

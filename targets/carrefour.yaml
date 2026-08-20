@@ -1,0 +1,7 @@
+# carrefour — Cloudflare managed challenge.
+name: carrefour
+challenge: cloudflare
+proxy_env: SOLVER_TESTS_PROXY_FR
+pages:
+  home:     https://www.carrefour.fr/
+  category: https://www.carrefour.fr/r/hygiene-et-beaute/hygiene-dentaire

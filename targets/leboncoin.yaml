@@ -1,0 +1,11 @@
+# leboncoin — DataDome. Consumer classifieds; the search surface is the one that
+# gets challenged hardest, so it is listed first.
+name: leboncoin
+challenge: datadome
+# Which proxy env var to use. Sessions are IP-bound, so the solve and every
+# replay must leave by the same egress — one proxy per target, not per page.
+proxy_env: SOLVER_TESTS_PROXY_FR
+pages:
+  home:     https://www.leboncoin.fr/
+  listing:  https://www.leboncoin.fr/recherche?category=2&price=4990-max&sort=time&order=desc
+  category: https://www.leboncoin.fr/c/voitures

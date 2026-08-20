@@ -1,0 +1,7 @@
+# leclercdrive — DataDome. Grocery drive; store pages live on region/city paths.
+name: leclercdrive
+challenge: datadome
+proxy_env: SOLVER_TESTS_PROXY_FR
+pages:
+  home:    https://www.leclercdrive.fr/
+  store:   https://www.leclercdrive.fr/region-nouvelle-aquitaine/bayonne/drive-bayonne.aspx
