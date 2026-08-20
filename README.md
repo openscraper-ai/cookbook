@@ -39,12 +39,19 @@ python3 run.py --provider bridge_datadome   # pin a method, no fallback
 
 Exit status is the verdict: non-zero if any target fails.
 
-### The proxy is not optional
+### You bring the proxy
 
-Every session these challenges issue is bound to the egress IP that earned it.
-The solve and all its replays must leave by the **same** proxy, which is why one
-proxy is declared per target and not per page. A rotating proxy will fail every
-target for reasons that look like solver bugs — use a sticky or static one.
+**The API rejects any solve without one** — every provider does, and not as a
+policy: `cf_clearance`, `_abck` and `datadome` are all bound to the egress IP
+that earned them, so a session harvested from an IP you cannot reuse is worth
+nothing. There is no proxyless mode to fall back to.
+
+It must also be the **same** IP for the solve and every replay, which is why one
+proxy is declared per target rather than per page. A rotating proxy fails every
+target, with errors that look like solver bugs — use a sticky or static one
+(residential or ISP).
+
+A credit balance alone will not run this suite. Bring your own proxy.
 
 ## Adding a target
 
