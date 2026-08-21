@@ -13,14 +13,14 @@ import argparse
 import sys
 from pathlib import Path
 
-from solver_tests.runner import load_targets, render_report, run_target
+from cookbook.runner import load_targets, render_report, run_target
 
 ROOT = Path(__file__).resolve().parent
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--targets-dir", default=str(ROOT / "targets"))
+    ap.add_argument("--targets-dir", default=str(ROOT / "solving" / "targets"))
     ap.add_argument("--target", action="append", default=[],
                     help="run only these targets (repeatable)")
     ap.add_argument("--provider", default="",
