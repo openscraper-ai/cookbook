@@ -8,7 +8,9 @@ Two things live here, and they answer different questions:
 - **`examples/`** — how do I use this? Short, commented scripts you can port to
   any language. Start with
   [`solve_and_replay.py`](examples/solve_and_replay.py): forty lines, two HTTP
-  calls, a real page at the end.
+  calls, a real page at the end. Then
+  [`leboncoin/`](examples/leboncoin/) goes one step further — it parses the
+  search page and prints the listings, the only proof a soft block can't fake.
 - **`solving/`** — does it actually work? A suite that runs nightly against real
   sites on a deliberately strict rule.
 
