@@ -16,6 +16,18 @@ that session yourself, paying only for your own proxy.
 Supported today: **DataDome, Cloudflare, Akamai, PerimeterX, AWS WAF.** More
 challenges and more worked examples are landing.
 
+## Supported sites
+
+Ready, verified recipes — the sites you can scrape end-to-end today:
+
+| Site | Anti-bot | Recipe |
+|------|----------|--------|
+| **leboncoin** | DataDome | [`examples/leboncoin/`](examples/leboncoin/) |
+
+More are being added. The API itself is **site-agnostic** — it clears DataDome,
+Cloudflare, Akamai, PerimeterX and AWS WAF on any target — so a new site is a new
+recipe, not a new feature. Want one prioritised? Open an issue.
+
 ## Why it's cheap
 
 Two ways to get past an anti-bot wall, and they bill very differently:
